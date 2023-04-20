@@ -80,6 +80,12 @@ public class Exam02Controller {
 
 
 
+    @GetMapping("/ex07")
+    public List<Member> ex07(){
+        List<Member> members = repository.findUsers("용");
+
+        return members;
+    }
 
 
 
