@@ -159,6 +159,13 @@ public class Exam01Controller {
     }
 
 
+    @GetMapping("/ex10")
+    public void ex10(){
+        Member member = memberRepository.findById(1L).orElse(null);
+        memberRepository.delete(member);
+        memberRepository.flush();
+    }
+
 
 
 

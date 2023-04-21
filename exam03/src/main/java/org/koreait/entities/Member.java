@@ -29,7 +29,7 @@ public class Member extends BaseEntity {
     private String mobile;
 
 
-    @OneToMany(mappedBy = "member") // 관계의 주인을 정한다  BoardData 에 있는 "member" 가 주인이다(외래키)
+    @OneToMany(mappedBy = "member",cascade = CascadeType.REMOVE) // 관계의 주인을 정한다  BoardData 에 있는 "member" 가 주인이다(외래키)
     private List<BoardData> boardData = new ArrayList<>();
 
 
