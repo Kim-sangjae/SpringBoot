@@ -1,11 +1,13 @@
 package org.koreait.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 
 @Data
 @Entity
+@Builder
+@NoArgsConstructor @AllArgsConstructor
 public class BoardData extends BaseEntity {
 
     @Id
@@ -23,7 +25,8 @@ public class BoardData extends BaseEntity {
 
 
 
-    @ManyToOne
+    @ToString.Exclude
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="userNo")
     private Member member;
 
