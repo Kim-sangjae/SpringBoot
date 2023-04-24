@@ -13,7 +13,11 @@ import org.example.constants.UserType;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users {
+@Table(indexes = {
+        @Index(name="idx_userNm",columnList = "userNm"),
+        @Index(name="idx_regDt_desc",columnList = "regDt DESC")
+})
+public class Users extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -1,18 +1,30 @@
 package org.example.config;
 
 
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+@EnableJpaAuditing
 public class MvcConfig implements WebMvcConfigurer {
 
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    @Bean
+    public MessageSource messageSource(){
 
-     return http.build();
+        ResourceBundleMessageSource ms = new ResourceBundleMessageSource();
+        ms.setDefaultEncoding("utf-8");
+        ms.addBasenames("messages.commons","messages.errors","messages.validations");
+
+        return ms;
     }
+
+
 
 
 }
