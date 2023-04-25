@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layouts/main}">
-
-
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
 <main layout:fragment="content">
     <h1 th:text="#{user.join}"></h1>
     <form method="post" th:action="@{/user}" autocomplete="off" th:object="${joinForm}">
@@ -19,7 +17,7 @@
             <dt th:text="#{userPw}"></dt>
             <dd>
                 <input type="password" name="userPw" th:field="*{userPw}">
-                <div class='error' th:each="err : ${#fields.errors('userPw')}" th:text="${err}"></div>
+                <div class="error" th:each="err : ${#fields.errors('userPw')}" th:text="${err}"></div>
             </dd>
         </dl>
         <dl>
@@ -67,7 +65,4 @@
         </div>
     </form>
 </main>
-
-
-
 </html>
