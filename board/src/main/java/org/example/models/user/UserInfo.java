@@ -40,7 +40,7 @@ public class UserInfo implements UserDetails {
     @Override
     public boolean isAccountNonExpired() {
         return true;
-    }
+    } // 계정이 만료되었는지
 
     @Override
     public boolean isAccountNonLocked() {
@@ -55,5 +55,5 @@ public class UserInfo implements UserDetails {
     @Override
     public boolean isEnabled() { //비활성화 - 탈퇴한회원관리?
         return true;
-    }
+    } //탈퇴 false면 탈퇴한 회원
 }

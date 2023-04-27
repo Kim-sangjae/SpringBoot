@@ -1,7 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymleaf.org/extras/spring-security">
     <header th:fragment="common">
-        <h1>헤더</h1>
+        <th:block sec:authorize="isAnonymous()">
+            <a th:href="@{/user/join}" th:text="#{user.join}"></a>
+            <a th:href="@{/user/login}" th:text="#{user.login}"></a>
+        </th:block>
+
+        <th:block sec:authorize="isAuthenticated()">
+            <b>[[${session.userInfo.userNm}]] ([[${session.userInfo.userId}]]) </b>님 로그인...
+
+            <a sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{/admin}">관리자페이지</a>
+            <a th:href="@{/user/logout}">로그아웃</a>
+
+        </th:block>
+
+
     </header>
 
 </html>

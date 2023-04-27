@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
 @SpringBootTest
-@TestPropertySource(locations = "application-test.properties")
+@TestPropertySource(locations = "classpath:application-test.properties")
 @Transactional
 @AutoConfigureMockMvc
 public class ApiUserTest {
