@@ -99,7 +99,7 @@ public class JPAExamController {
 
     @GetMapping("/ex06")
     public void ex06(){
-        Pageable pageable = PageRequest.of(0,3, Sort.by(Sort.Order.desc("regDt")));
+        Pageable pageable = PageRequest.of(0,3, Sort.by(Sort.Order.desc("regDt"),Sort.Order.desc("userNo")));
 
      List<Member> members = repository.findByUserNmContaining("자",pageable);
 
