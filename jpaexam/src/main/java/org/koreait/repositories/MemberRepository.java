@@ -1,4 +1,4 @@
-package org.koreait.repsitories;
+package org.koreait.repositories;
 
 import org.koreait.entities.Member;
 
@@ -22,6 +22,9 @@ public interface MemberRepository extends JpaRepository<Member,Long> {
 
     @Query("SELECT m FROM Member m WHERE m.userNm LIKE %:key% ORDER BY m.regDt DESC")
     List<Member> findMembers(@Param("key") String key);
+
+
+
 
 
 
